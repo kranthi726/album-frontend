@@ -5,6 +5,9 @@ import AlbumVue from '../views/Album.vue'
 import AddAlbum from '../views/AddAlbum.vue'
 import AlbumDetails from '../views/AlbumDetails.vue'
 import AlbumEdit from '../views/AlbumEdit.vue'
+import ArtistAlbumEdit from '../views/ArtistAlbumEdit.vue'
+import ArtistTrackEdit from '../views/ArtistTrackEdit.vue'
+
 import AddTrack from '../views/AddTrack.vue'
 import TrackDetails from '../views/TrackDetails.vue'
 import TrackEdit from '../views/TrackEdit.vue'
@@ -12,7 +15,7 @@ import ArtistEdit from '../views/ArtistEdit.vue'
 import AddArtist from '../views/AddArtist.vue'
 import ArtistDetails from '../views/ArtistDetails.vue'
 import HomeVue from '../views/Home.vue'
-
+import AlbTrackVue from '../views/AlbTrackVue.vue'
 
 const routes =[
     //routes for tracks
@@ -20,6 +23,11 @@ const routes =[
         path:'/track',
         name:'track',
         component:TrackVue,
+    },
+    {
+        path:'/albtrack',
+        name:'albtrack',
+        component:AlbTrackVue,
     },
     {
         path:'/add-track',
@@ -66,6 +74,18 @@ const routes =[
         pathMatch: 'full',
     },
     {
+        path:'/artistalbum/:id/edit',
+        name:'artistalbumEdit',
+        component:ArtistAlbumEdit,
+        pathMatch: 'full',
+    },
+    {
+        path:'/artisttrack/:id/edit',
+        name:'artisttrackEdit',
+        component:ArtistTrackEdit,
+        pathMatch: 'full',
+    },
+    {
         path:'/add-album',
         name:'addAlbum',
         component:AddAlbum,
@@ -96,6 +116,7 @@ const routes =[
 ]
 
 const router = createRouter({ 
+    base: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend/',
     history: createWebHistory(process.env.BASE_URL),
     routes
 })
